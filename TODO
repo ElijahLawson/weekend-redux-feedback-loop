@@ -1,0 +1,13 @@
+Bird's Eye
+- Implement Redux
+- Setup Routers
+- Setup Database
+- Set up reducers
+- Build Components
+  - FeelingPage
+  - UnderstandingPage
+  - SupportPage
+  - CommentsPage
+  - ReviewPage
+- Setup Components
+- Tie it all together
