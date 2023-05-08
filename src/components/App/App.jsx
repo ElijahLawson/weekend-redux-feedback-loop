@@ -8,7 +8,9 @@ import FeelingPage from '../FeelingPage/FeelingPage';
 import SupportPage from '../SupportPage/SupportPage';
 import CommentsPage from '../CommentsPage/CommentsPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
+import Success from '../Success/Success';
 import Layout from '../Layout/Layout';
+
 
 function App() {
 
@@ -22,6 +24,7 @@ function App() {
             <Route path='/support' element={<SupportPage />} />
             <Route path='/comments' element={<CommentsPage />} />
             <Route path='/review' element={<ReviewPage />} />
+            <Route path='/success' element={<Success />} />
           </Route>
         </Routes>
       </main>

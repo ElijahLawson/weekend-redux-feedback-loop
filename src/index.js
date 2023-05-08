@@ -8,12 +8,34 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const feedback = (state={}, aciton) => {
-    return state
+const feedbacks = (state=[], action) => {
+    switch (action.type) {
+        case 'ADD_FEEDBACK':
+            return [...state, action.payload];
+        default:
+            return state;
+    }
+}
+
+const currentFeedback = (state={}, action) => {
+    switch (action.type) {
+        case 'ADD_FEELINGS':
+            return {...state, feelings:action.payload};
+        case 'ADD_UNDERSTANDING':
+            return {...state, understanding:action.payload};
+        case 'ADD_SUPPORT':
+            return {...state, support:action.payload};
+        case 'ADD_COMMENTS':
+            return {...state, comments:action.payload};
+        case 'RESET_STATE':
+            return state = {};
+        default:
+            return state;
+    }
 }
 
 const store = createStore(
-    combineReducers({feedback}),
+    combineReducers({feedbacks, currentFeedback}),
     applyMiddleware(logger)
 )
 
