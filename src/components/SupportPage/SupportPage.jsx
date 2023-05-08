@@ -12,14 +12,19 @@ function SupportPage() {
     const submitSupport = (event) => {
         event.preventDefault();
 
-        dispatch({
-            type: 'ADD_SUPPORT',
-            payload: supportInput
-        })
+        if (!isNaN(supportInput)) {
+            dispatch({
+                type: 'ADD_SUPPORT',
+                payload: supportInput
+            })
+    
+            setSupportInput('');
+    
+            navigate('../comments');
+        } else {
+            alert('Must be a number');
+        }
 
-        setSupportInput('');
-
-        navigate('../comments');
     }
 
     return(

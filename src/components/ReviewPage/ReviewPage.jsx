@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function ReviewPage() {
 
@@ -9,12 +10,20 @@ function ReviewPage() {
     const currentFeedback = useSelector(storeInstance => storeInstance.currentFeedback);
 
     const submitFeedback = () => {
-        dispatch({
-            type: 'ADD_FEEDBACK',
-            payload: currentFeedback
+        axios({
+            method: 'POST',
+            data: currentFeedback,
+            url: '/feedback'
+        }).then(response => {
+            dispatch({
+                type: 'ADD_FEEDBACK',
+                payload: currentFeedback
+            })
+            console.log('Added to Feedback List and Database')
+            navigate('../Success');
+        }).catch(error => {
+            console.log(error);
         })
-
-        navigate('../Success');
     }
 
     return(

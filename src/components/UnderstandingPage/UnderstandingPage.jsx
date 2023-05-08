@@ -13,14 +13,19 @@ function UnderstandingPage() {
     const submitUnderstanding = (event) => {
         event.preventDefault();
 
-        dispatch({
-            type: 'ADD_UNDERSTANDING',
-            payload: understandingInput
-        })
-
-        setUnderstandingInput('');
-
-        navigate('../support');
+        if (!isNaN(understandingInput)) {
+            dispatch({
+                type: 'ADD_UNDERSTANDING',
+                payload: understandingInput
+            })
+    
+            setUnderstandingInput('');
+    
+            navigate('../support');
+        } else {
+            alert('Must be a number!')
+        }
+        
     }
     return(
         <>

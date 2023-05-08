@@ -14,14 +14,19 @@ function FeelingPage() {
     const submitFeelings = (event) => {
         event.preventDefault();
 
-        dispatch({
-            type: 'ADD_FEELINGS',
-            payload: feelingsInput
-        })
-
-        setFeelingsInput('');
-
-        navigate('../understanding');
+        // console.log(parseInt(feelingsInput));
+        if (!isNaN(feelingsInput)) {
+            dispatch({
+                type: 'ADD_FEELINGS',
+                payload: feelingsInput
+            })
+    
+            setFeelingsInput('');
+    
+            navigate('../understanding');
+        } else {
+            alert('The input must be a number');
+        }
     }
 
     return(
