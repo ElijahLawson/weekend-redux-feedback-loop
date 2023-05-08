@@ -1,6 +1,7 @@
 function UnderstandingPage() {
     return(
         <>
+            <p>test</p>
         </>
     )
 }

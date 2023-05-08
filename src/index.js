@@ -5,7 +5,7 @@ import App from './components/App/App';
 import { BrowserRouter } from 'react-router-dom';
 
 import {createStore, combineReducers, applyMiddleware} from 'redux';
-import { Provider } from 'react';
+import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 const feedback = (state={}, aciton) => {
@@ -21,10 +21,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Provider store={store}>
+        <Provider store={store}>
+            <BrowserRouter>
                 <App />
-            </Provider>
-        </BrowserRouter>
+            </BrowserRouter>
+        </Provider>
+
     </React.StrictMode>
 );
